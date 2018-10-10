@@ -1,0 +1,36 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.modal-header {
+	background-color: darkblue;
+	color: white;
+}
+
+.Absolute-Center {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+	width: 50%; 
+	height: 50%;
+	min-width: 200px;
+	max-width: 400px;
+	padding: 40px;
+}
+
+ul {
+	list-style-type: none;
+	width: 100%;
+}
+
+li {
+	padding: 10px;
+	overflow: auto;
+}
+
+li:hover {
+	background: #eee;
+	cursor: pointer;
+}

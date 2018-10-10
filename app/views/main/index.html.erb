@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <center><h2 id="result"></h2></center>
+    <!-- Button trigger modal -->
+    <div class="Absolute-Center is-Responsive">
+      <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+        Launch Calculator
+      </button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <img src="https://cdn.shipsticks.com/assets/v4/text-logo-dark-bg-b4b2c1a8fd374fbe15ff482dc3f04c30.png">
+      </div>
+      <div class="modal-body">
+        
+        <!--Results-->
+        <div id="results-container" class="alert alert-success" role="alert" style="display: none;">
+        </div>
+
+        <div class="contact-clean">
+        	<%= form_with url: api_v1_products_path, method: :get do |form| %>
+				<div class="form-group">
+			  		<%= form.number_field :length, {:required => true, :placeholder=> "Length", :class=>"form-control"} %>
+			  	</div>
+			  	<div class="form-group">
+			  		<%= form.number_field :width, {:required => true, :placeholder=> "Width", :class=>"form-control"} %>
+			  	</div>
+			  	<div class="form-group">
+			  		<%= form.number_field :height, {:required => true, :placeholder=> "Height", :class=>"form-control"} %>
+			  	</div>
+			  	<div class="form-group">
+			  		<%= form.number_field :weight, {:required => true, :placeholder=> "Weight", :class=>"form-control"} %>
+			  	</div>
+			  	<div class="form-group text-right">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-success">Calculate</button>
+				</div>
+			<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('form').on('ajax:success', function(event) {
+	var detail = event.detail;
+	var data = detail[0], status = detail[1],  xhr = detail[2];
+	console.log(data);
+	$('#results-container').text(data.name);
+	$('#result').text(data.name);
+	$('#results-container').show();
+});
+</script>

@@ -54,7 +54,7 @@ class Api::V1::ProductsController < ApplicationController
 		 			end
 		  		end
 
-		  		puts best
+		  		puts @product.name
 		  		puts "------------------------------"
 
 		  		render json: @product
