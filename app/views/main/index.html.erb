@@ -54,5 +54,9 @@ $('form').on('ajax:success', function(event) {
 	$('#results-container').text(data.name);
 	$('#result').text(data.name);
 	$('#results-container').show();
+
+	var timer = setInterval(function() {
+		$('#exampleModal').modal('hide');   
+	}, 5000);
 });
 </script>
